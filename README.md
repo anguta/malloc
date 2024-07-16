@@ -3,7 +3,7 @@
 
 ## Description
 
-In this assignment you will build your own implementation of malloc and free. That is, you will need to implement a library that interacts with the operating system to perform heap management on behalf of a user process as demonstrated in class. The code you submit for this assignment will be verified against a database consisting of kernel source, github code, stackoverflow, previous student’s submissions and other internet resources. Code that is not 100% your own code will result in a grade of 0 and referral to the Office of Student Conduct. This project must be completed, in C, on a course Codespace.
+In this assignment you will build your own implementation of malloc and free. That is, you will need to implement a library that interacts with the operating system to perform heap management on behalf of a user process as demonstrated in class. The code you submit for this assignment will be verified against a database consisting of kernel source, github code, stackoverflow, previous student’s submissions and other internet resources. This project must be completed, in C, on a course Codespace.
 
 ## Building and Running the Code
 
@@ -112,9 +112,3 @@ Basically, you want to first load gdb with the test program that is crashing. Ne
 This assignment must be coded in C. Any other language will result in 0 points. Your programs will be compiled and graded on the course GitHub Codespace. Code that does not compile with the provided makefile will result in a 0.
 
 There are coding resources and working code you may use in the course GitHub repositories.  You are free to use any of that code in your program if needed. You may use no other outside code.
-
-## Academic Integrity
-This assignment must be 100% your own work. No code may be copied from friends,  previous students, books, web pages, etc. All code submitted is automatically checked 
-against a database of previous semester’s graded assignments, current student’s code and common web sources. By submitting your code on GitHub you are attesting that 
-you have neither given nor received unauthorized assistance on this work. Code that is copied from an external source or used as inspiration, excluding the 
-course github, will result in a 0 for the assignment and referral to the Office of Student Conduct.
