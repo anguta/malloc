@@ -95,7 +95,7 @@ struct _block *findFreeBlock(struct _block **last, size_t size)
    /** \TODO Implement best fit here */
 
    struct _block *best = NULL;
-   long long best_size = INT_MAX;
+   size_t best_size = INT_MAX;
    while(curr) {
       
       if(curr->free && curr->size >= size) {
@@ -104,6 +104,7 @@ struct _block *findFreeBlock(struct _block **last, size_t size)
             
             best_size = curr->size;
             best = curr; 
+            if((curr->size - size)==0) break; // perfect fit
          }
       }
       *last = curr;
@@ -117,17 +118,18 @@ struct _block *findFreeBlock(struct _block **last, size_t size)
    /** \TODO Implement worst fit here */
 
    struct _block *worst = NULL;
-   long long worst_size = 0;
+   size_t worst_size = 0;
    while(curr) {
       
       if(curr->free && curr->size >= size) {
 
          if((curr->size - size) > worst_size) {
             
-            worst_size = curr->size;
+            worst_size = curr->size - size;
             worst = curr; 
          }
       }
+      *last = curr;
       curr = curr->next;
    }
    curr = worst;
@@ -137,8 +139,9 @@ struct _block *findFreeBlock(struct _block **last, size_t size)
 #if defined NEXT && NEXT == 0
    /** \TODO Implement next fit here */
    struct _block *next = NULL;
-   long long next_size = INT_MAX;
-   if(next) curr = next;
+
+   size_t next_size = INT_MAX;
+   if(next) curr = next->next;
    while (curr) {
       
       if(curr->free && curr->size >= size) {
@@ -253,14 +256,13 @@ void *malloc(size_t size)
       if((next->size - size) > (sizeof(struct _block) + 4)) {
 
          num_splits++;
-         struct _block *blocK = NULL;
-         long long old_size = next->size;
-
+         struct _block *new_block = (struct _block*)((char*)BLOCK_DATA(next) + size);
+         new_block->size = (next->size - size) - sizeof(struct _block);
+         new_block->next = next->next;
+         new_block->free = true;
+         
          next->size = size;
-         blocK = (struct _block*)((long long)BLOCK_DATA(next) + sizeof((struct _block*) + size));
-         next->next = blocK;
-         blocK->size = old_size - size - sizeof(struct _block);
-         blocK->free = true;  
+         next->next = new_block;  
       }
       // don't split
    }
