@@ -3,7 +3,7 @@
 
 ## Description
 
-In this assignment you will build your own implementation of malloc and free. That is, you will need to implement a library that interacts with the operating system to perform heap management on behalf of a user process as demonstrated in class. The code you submit for this assignment will be verified against a database consisting of kernel source, github code, stackoverflow, previous student’s submissions and other internet resources. This project must be completed, in C, on a Codespace.
+In this assignment you will build your own implementation of malloc and free. That is, you will need to implement a library that interacts with the operating system to perform heap management on behalf of a user process. This project must be completed, in C, on a Codespace.
 
 ## Building and Running the Code
 
