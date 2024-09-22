@@ -1,5 +1,5 @@
 
-# malloc Assignment
+# Memory Allocator (Malloc)
 
 ## Description
 
