@@ -107,13 +107,3 @@ $ gdb ./tests/ffnf
 (gdb) where
 ```
 Basically, you want to first load gdb with the test program that is crashing. Next, you need to tell gdb to utilize the appropriate malloc library by creating an exec-wrapper that loads it into memory. Next, simply run the program. Once it segfaults, you can print a stack trace by using the where command. From there, you can explore the state of your program and see if you can determine what went wrong.
-
-## How to submit code and report.
-
-1. Your program source code and report are to be turned in via the Feedback GitHub pull request. **Do not merge this pull request**.  Submission time is determined by the GitHub system time. You may push your code as often as you wish. Only your last submission will be graded.  
-
-## Administrative
-
-This assignment must be coded in C. Any other language will result in 0 points. Your programs will be compiled and graded on the course GitHub Codespace. Code that does not compile with the provided makefile will result in a 0.
-
-There are coding resources and working code you may use in the course GitHub repositories.  You are free to use any of that code in your program if needed. You may use no other outside code.
